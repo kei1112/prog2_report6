@@ -24,11 +24,13 @@ class gaming extends Sabu{
         while(true){
             System.out.println("~~~~~ では、初めていくよ！ ~~~~~");
             input = in.nextInt();
-            if(input == 2){
-                System.out.println("");
+            if(numbers.contains(input)){//numbersのリスト内に選んだ数字がある場合
+                System.out.println(name + "これはもう出しているよ。");
+                
                 break;
-            }else{
-                System.out.println("");
+            }else{//数字がない場合
+                numbers.add(input);
+                System.out.println(name + "は" + input + "を選んだ");
             }
         }
         in.close();
