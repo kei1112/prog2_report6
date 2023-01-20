@@ -4,9 +4,12 @@ public class Main {
     public static void main(String[] args){
         System.out.println("~~~~~ Let's start!! ~~~~~");
     
-        Game play1 = new Game("jyo", 5);
+        Game play1 = new Game("jyo");
         play1.explain();
-        play1.gaming();
+        play1.game(0);
+        
+
+
     }
     
 }

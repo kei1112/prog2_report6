@@ -1,11 +1,18 @@
 package jp.ac.uryukyu.ie.e225718;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 //ごかくし
-public class Game{
-    private String name;
-    private int number;
+
+class Sabu{
+    String name;
+    Integer number;
+    ArrayList<Integer> numbers = new ArrayList<Integer>();
+    ArrayList<Integer> numbers2 = new ArrayList<Integer>();
+}
+
+public class Game extends Sabu{
 
     public void setName(String username){
         this.name = username;
@@ -19,87 +26,63 @@ public class Game{
     public int getNumber(){
         return this.number;
     }
-
-
-    public Game(String username,int number){
+    //コンストラクタ
+    Game(String username){
         this.setName(username);
-        System.out.println("・ユーザーネームを" + name + "で始めるね♡\n  私の名前はみちぇだよ");
-        this.setNumber(number);
-        System.out.println("・５で行くよ");
+        System.out.println("・ユーザーネームを" + name + "で始めるね♡\n  私の名前はみちぇだよ");   
     }
+    //メソッド1 説明する
     public void explain(){
         System.out.println("＊今から説明するよ＊\n1 まず、1~5の中で1つ数字を選ぶ\n2 みちぇが、君の選んだ数より大きい数を言うよ\n3 君はそれより大きい数を選ぼう\n4 言いたくない時や、大きい数がない時は、パスを選択できるよ");
     }
-    public void master(int number){
+
+    //メソッド2 マスターの中身
+    public void master(int number){//number>>相手が選んだ数
         //ユーザーより大きい数を選ぶ。ルールに則って
-        if(number < 4){
-        int mm = 4;
-        System.out.println("みちぇは " + mm + " を選んだ");
+        int i = 1;
+        while(i == 1){
+            Random ran = new Random();
+            int my_number = ran.nextInt(5) + 1;
+            boolean result = numbers2.contains(number);
+            boolean okisa = my_number > number;
+
+            if(!result && okisa){
+                    System.out.println("みちぇは" + my_number + "を選んだ！");
+                    numbers2.add(my_number);
+                    game(my_number);
+                    break;
+            }else{
+                i = 1;
+            }
+        }
+        
+            
+        }
+    //メソッド3-2 ゲームの内容  >>>　5の次どうするか
+    public void game(int number){
+        int input;
+        int i = 1;
+
+        Scanner in = new Scanner(System.in);
+        System.out.println("~~~~~ では、初めていくよ！ ~~~~~");
+        while(i == 1){
+            System.out.println("ここにあるものは出せないよ　" + numbers + "　");    
+            input = in.nextInt();
+            boolean result = numbers.contains(input);
+            boolean okisa = input > number;
+            if(!result && okisa){
+                System.out.println(name + "は" + input + "を選んだ");
+                numbers.add(input);
+                master(input);
+                break;
+        }else{
+            i = 1;
         }
 
-    }
-    public void gaming(){  
-        int i = 5;
-        int input1;
-        System.out.println("~~~~~ では、初めていくよ！ ~~~~~");
-        Scanner in = new Scanner(System.in);
-        while(i > 0){
-            System.out.println("----- 君の番 -----\n数字を選んでね");
-            input1 = in.nextInt();
-            System.out.println("君が選んだのは " + input1);
-            Integer number1 = input1;
-            //numbers.add(number1);
-            System.out.println("----- みちぇの番 -----");
-            master(input1);
-            //numbers.get(0);
-            //int number1 = scanner.nextInt();
-            //System.out.println("君が選んだのは " + number1);
-            //System.out.println("----- みちぇの番 -----");
-            //master(number1);
-            i -= 1;
-  
         }
         in.close();
-        System.out.println("~~~~~ 君の勝ち！ ~~~~~");
-    }
-    
-    class Sabu{
-        String name;
-        Integer number;
-        ArrayList<Integer> numbers = new ArrayList<Integer>();
-    }
-    class gaming extends Sabu{
-        gaming(String username){
-            this.setName(username);
-            System.out.println("・ユーザーネームを" + name + "で始めるね♡\n  私の名前はみちぇだよ");
-        }
-        public void setName(String username){
-            this.name = username;
-        }
-        public void game(String name){
-            int input;
-            System.out.println("~~~~~ では、初めていくよ！ ~~~~~");
-    
-            Scanner in = new Scanner(System.in);
-            while(true){
-                System.out.println("~~~~~ では、初めていくよ！ ~~~~~");
-                input = in.nextInt();
-                if(numbers.contains(input)){//numbersのリスト内に選んだ数字がある場合
-                    System.out.println(name + "これはもう出しているよ。");
-                    
-                    break;
-                }else{//数字がない場合
-                    numbers.add(input);
-                    System.out.println(name + "は" + input + "を選んだ");
-                }
-            }
-            in.close();
-    
-        }
-        public void explain(){
-            System.out.println("＊今から説明するよ＊\n1 まず、1~5の中で1つ数字を選ぶ\n2 みちぇが、君の選んだ数より大きい数を言うよ\n3 君はそれより大きい数を選ぼう\n4 言いたくない時や、大きい数がない時は、パスを選択できるよ");
-        }
     }
 
+    
 }
 
