@@ -41,24 +41,31 @@ public class Game extends Sabu{
         //ユーザーより大きい数を選ぶ。ルールに則って
         int i = 1;
         while(i == 1){
-            Random ran = new Random();
-            int my_number = ran.nextInt(5) + 1;
-            boolean result = numbers2.contains(number);
-            boolean okisa = my_number > number;
-
-            if(!result && okisa){
-                    System.out.println("みちぇは" + my_number + "を選んだ！");
-                    numbers2.add(my_number);
-                    game(my_number);
-                    break;
+            if(number == 5){
+                System.out.println("パスしか出せないよ(・Д・)");
+                game(0);
+                break;
             }else{
-                i = 1;
+                Random ran = new Random();
+                int my_number = ran.nextInt(5) + 1;
+
+                boolean result = numbers2.contains(number);
+                boolean okisa = my_number > number;
+
+                if(!result && okisa){
+                        System.out.println("みちぇは" + my_number + "を選んだ！");
+                        numbers2.add(my_number);
+                        game(my_number);
+                        break;
+                }else{
+                    i = 1;
+                }
             }
         }
         
             
         }
-    //メソッド3-2 ゲームの内容  >>>　5の次どうするか
+    //メソッド3-2 ゲームの内容  >>>　勝ち負け決める
     public void game(int number){
         int input;
         int i = 1;
@@ -66,18 +73,24 @@ public class Game extends Sabu{
         Scanner in = new Scanner(System.in);
         System.out.println("~~~~~ では、初めていくよ！ ~~~~~");
         while(i == 1){
-            System.out.println("ここにあるものは出せないよ　" + numbers + "　");    
-            input = in.nextInt();
-            boolean result = numbers.contains(input);
-            boolean okisa = input > number;
-            if(!result && okisa){
-                System.out.println(name + "は" + input + "を選んだ");
-                numbers.add(input);
-                master(input);
+            if(number == 5){
+                System.out.println("パスしか出せないよ(・Д・)");
+                master(0);
                 break;
-        }else{
-            i = 1;
-        }
+            }else{
+                System.out.println("ここにあるものは出せないよ　" + numbers + "　");    
+                input = in.nextInt();
+                boolean result = numbers.contains(input);
+                boolean okisa = input > number;
+                if(!result && okisa){
+                    System.out.println(name + "は" + input + "を選んだ");
+                    numbers.add(input);
+                    master(input);
+                    break;
+                }else{
+                    i = 1;
+                }
+            }
 
         }
         in.close();
