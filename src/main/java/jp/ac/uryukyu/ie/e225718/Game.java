@@ -11,13 +11,12 @@ import java.util.Scanner;
  * 
  */
 
-class Sabu{
+
+public class Game{
     String name;
     ArrayList<Integer> numbers = new ArrayList<Integer>();
     ArrayList<Integer> numbers2 = new ArrayList<Integer>();
-}
 
-public class Game extends Sabu{
 
     /**
      * ユーザーの名前を登録するメソッド
