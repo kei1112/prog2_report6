@@ -41,7 +41,7 @@ public class Game{
     Game(String username){
         this.setName(username);
         System.out.println("　      ーーーーーーーーーーーーーーーーー");
-        System.out.println("　^o^ <   ユーザーネームを" + getName() + "で始めるね ♡ ｜\n　     |    私の名前は みちぇ だよ  　　　｜");   
+        System.out.println("　^o^ <   ユーザーネームを" + getName() + "で始めるね ♡ ｜\n　     |    私の名前は みちぇ だよ   　　　｜");   
         System.out.println("　      ーーーーーーーーーーーーーーーーー\n");
     }
 
@@ -70,7 +70,7 @@ public class Game{
         while(i == 1 && numbers.size()<5){
 
             if(number == 5){
-                System.out.println("❤️-----❤️ みちぇは パス をした ❤️-----❤️");
+                System.out.println("❤︎-----❤︎ みちぇは パス をした ❤︎-----❤︎");
                 gaming(0);
                 break;
             }else{
@@ -81,7 +81,7 @@ public class Game{
                 boolean okisa = my_number > number;// number < my_number がない時
 
                 if(!result && okisa){
-                        System.out.println("❤️---❤️ みちぇは " + my_number + " を選んだ ❤️---❤️");
+                        System.out.println("❤︎---❤︎ みちぇは " + my_number + " を選んだ ❤︎---❤︎");
                         numbers2.add(my_number);
                         gaming(my_number);
                         break;
