@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="jp.ac.uryukyu.ie.e225718.GameTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-01-23T15:06:15" hostname="kuroshimatoshinoMacBook-Air.local" time="0.02">
+  <properties/>
+  <testcase name="gamingtest()" classname="jp.ac.uryukyu.ie.e225718.GameTest" time="0.02"/>
+  <system-out><![CDATA[　      ーーーーーーーーーーーーーーーーー
+　^o^ <   ユーザーネームをkentoで始めるね ♡ ｜
+　     |    私の名前は みちぇ だよ   　　　｜
+　      ーーーーーーーーーーーーーーーーー
+
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
